@@ -4,7 +4,7 @@ let url="https://demoapisjsonserver.herokuapp.com/pokemons";
 const getAllPokemons= async (req) => {
     try {
         let pokemons = await axios.get(url);
-        // console.log(pokemons.data);
+        console.log(Object.keys(pokemons.data).length);
       return pokemons.data
     } catch (error) {
       console.error(error)
