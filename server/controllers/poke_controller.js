@@ -3,7 +3,8 @@ const {getAllPokemons, getPokemonById, addPokemon, updatePokemon, deletePokemon}
 const getPokemons = async (req, res) => {
     let pokemons = await getAllPokemons(req);
     console.log(pokemons);
-    res.send(pokemons)
+    // res.send(pokemons)
+    res.render('../server/views/home',  {pokeObj: pokemons})
 }
 
 const getPokemon = async (req, res) => {
