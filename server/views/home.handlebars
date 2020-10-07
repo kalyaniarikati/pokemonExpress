@@ -2,17 +2,17 @@
     <a class="navbar-brand" href="#">Pokemon Team</a>
 </nav>
 
+
 <div>
     <div class="row justify-content-center">
-                {{#each pokeObj}}
+        {{#each pokeObj}}
         <div class="col-md-2" style="margin-top: 50px;">
-            <div class="card" >
-                <img src="{{this.image}}"
-                    class="card-img-top" style="width: 10vw; height:10vh" alt="...">
+            <div class="card">
+                <img src="{{this.image}}" class="card-img-top" style="width: 10vw; height:10vh" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{this.name}}</h5>
 
-                     {{#if this.desc}}
+                    {{#if this.desc}}
                     <ul class="list-group">
                         {{#each poke.desc}}
                         <li class="list-group-item">{{this.desc}}</li>
@@ -27,5 +27,14 @@
             </div>
         </div>
         {{/each}}
+    </div>
+    <br>
+    <div class="row justify-content-center">
+        <form method='GET' action="/getCommentsByEmail">
+            <span>Give us your email and Get comments</span>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="email"
+                name="email">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
 </div>

@@ -1,3 +1,5 @@
+let User = require("../model/comments");
+const fetch = require("node-fetch");
 const axios = require('axios');
 let url="https://demoapisjsonserver.herokuapp.com/pokemons";
 
@@ -67,10 +69,40 @@ const getAllPokemons= async (req) => {
     }    
   }
 
+  const addComment = async function() {
+    const dataUrl = 'https://jsonplaceholder.typicode.com/comments';
+        const response = await fetch(dataUrl);
+        const data = await response.json();
+        let json = JSON.stringify( data, null, 2 );
+        // console.log(json);
+        
+        let load = data.map(function(x) { return {name: x.name,
+          email: x.email,
+          comment: x.body} } );
+          // console.log(load)
+      // save model to database
+      User.insertMany(load).then(function(){ 
+        console.log("Data inserted")  // Success 
+    }).catch(function(error){ 
+        console.log(error)      // Failure 
+    });
+        
+        // json.forEach(async (obj) =>{
+        //   let newComment = {
+        //     name: obj.name,
+        //     email: obj.email,
+        //     comment: obj.body
+        // }
+        // await new User(newComment)
+        // })
+  }
+
+  // addComment();
   module.exports={
     getAllPokemons,
     getPokemonById,
     addPokemon,
     updatePokemon,
-    deletePokemon
+    deletePokemon,
+    addComment
   }

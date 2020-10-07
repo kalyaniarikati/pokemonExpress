@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {getPokemons, getPokemon, setPokemon, changePokemon, removePokemon} = require('../controllers/poke_controller');
+const {getCommentsByEmail} = require('../controllers/comments_controller');
 
 // get all posts
 router.get("/", getPokemons)
@@ -16,6 +17,12 @@ router.put("/:id", changePokemon)
 
 // delete a post route
 router.delete("/:id", removePokemon)
+
+// get comments
+router.get("/:email",getCommentsByEmail)
+
+// add a comment to pokemon
+// router.post('/:id/comments', makeComment)
 
 
 module.exports=router
