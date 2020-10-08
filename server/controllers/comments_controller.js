@@ -1,7 +1,7 @@
 const {getComments} = require('../util/commentsUtilities');
 
 const getCommentsByEmail = async (req, res) => {
-    let email = request.query.email;
+    let email = request.body.email;
     console.log(email)
 
     if (email != "") {
