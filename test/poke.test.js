@@ -21,8 +21,6 @@ describe("get pokemon by id",  () =>{
     })
 })
 
-
-
   describe("addPokemon", () => {
 	test("should add a poke", async () => {
         // add the post again because setupData will clear the one we created

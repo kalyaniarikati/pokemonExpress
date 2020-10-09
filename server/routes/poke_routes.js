@@ -19,7 +19,11 @@ router.put("/:id", changePokemon)
 router.delete("/:id", removePokemon)
 
 // get comments
-router.post("/",getCommentsByEmail)
+router.post("/email",getCommentsByEmail)
+
+router.get("/form-with-get", (req, res)=> {
+return res.render('form-with-get')
+})
 
 // add a comment to pokemon
 // router.post('/:id/comments', makeComment)
